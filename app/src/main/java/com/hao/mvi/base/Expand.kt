@@ -1,17 +1,31 @@
 package com.hao.mvi.base
 
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
-fun <I : IAction, O : IUiState> Fragment.render(
-    viewModel: BaseViewModel<I, O>,
-    function: (o: O) -> Unit
+internal fun <I : IAction, O : IUiState> Fragment.render(
+    vm: BaseViewModel<I, O>,
+    fn: (o: O) -> Unit
 ) {
-    viewModel.uiState().observe(viewLifecycleOwner, function)
+    // Start a coroutine in the lifecycle scope
+    lifecycleScope.launch {
+        // repeatOnLifecycle launches the block in a new coroutine every time the
+        // lifecycle is in the STARTED state (or above) and cancels it when it's STOPPED.
+        repeatOnLifecycle(Lifecycle.State.STARTED) {
+            vm.uiState().collect {
+                fn(it)
+            }
+        }
+    }
 }
 
 fun <I : IAction, O : IUiState> doAction(
-    viewModel: BaseViewModel<I, O>,
+    vm: BaseViewModel<I, O>,
     action: I
 ) {
-    viewModel.doAction(action)
+    vm.doAction(action)
 }

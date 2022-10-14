@@ -40,8 +40,8 @@ class MainFragment : BaseFragment() {
      *
      */
     private fun FragmentMainBinding.viewClick() {
-        btnAddition.setOnClickListener { doAction(viewModel, MainAction.Plus) }
-        btnSubtraction.setOnClickListener { doAction(viewModel, MainAction.Minus) }
+        btnPlus.setOnClickListener { doAction(viewModel, MainAction.Plus) }
+        btnMinus.setOnClickListener { doAction(viewModel, MainAction.Minus) }
     }
 
     override fun layout() = binding.root

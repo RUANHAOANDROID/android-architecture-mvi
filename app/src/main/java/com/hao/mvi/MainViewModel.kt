@@ -21,11 +21,11 @@ class MainViewModel : BaseViewModel<MainAction, MainUiState>() {
         when (action) {
             MainAction.Minus -> {
                 number--
-                uiState.postValue(MainUiState.Request(number))
+                send(MainUiState.Request(number))
             }
             MainAction.Plus -> {
                 number++
-                uiState.postValue(MainUiState.Request(number))
+                send(MainUiState.Request(number))
             }
         }
     }

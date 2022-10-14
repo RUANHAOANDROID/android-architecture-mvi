@@ -1,8 +1,9 @@
 package com.hao.mvi.base
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.launch
 
 /**
  * @author 锅得铁
@@ -13,15 +14,20 @@ abstract class BaseViewModel<I : IAction, O : IUiState> : ViewModel() {
     /**
      * Ui state launcher
      */
-    protected var uiState = MutableLiveData<O>()
+    private var _uiState = MutableSharedFlow<O>()
 
     /**
      *
      * Provide to view
      * @return LiveData<O>
      */
-    fun uiState(): LiveData<O> = uiState
+    fun uiState(): SharedFlow<O> = _uiState
 
     abstract fun doAction(action: I)
 
+    fun send(o: O) {
+        viewModelScope.launch {
+            _uiState.emit(o)
+        }
+    }
 }
