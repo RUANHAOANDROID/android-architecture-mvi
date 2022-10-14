@@ -1,7 +1,11 @@
 package com.hao.mvi
 
 import android.util.Log
+import androidx.lifecycle.viewModelScope
 import com.hao.mvi.base.BaseViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 /**
  *  viewModel
@@ -21,11 +25,16 @@ class MainViewModel : BaseViewModel<MainAction, MainUiState>() {
         when (action) {
             MainAction.Minus -> {
                 number--
-                uiState.postValue(MainUiState.Request(number))
+                send(MainUiState.Request(number))
             }
             MainAction.Plus -> {
                 number++
-                uiState.postValue(MainUiState.Request(number))
+                viewModelScope.launch {
+                    withContext(Dispatchers.IO) {
+                        send(MainUiState.Request(number))
+                    }
+                }
+                send(MainUiState.Request(number))
             }
         }
     }

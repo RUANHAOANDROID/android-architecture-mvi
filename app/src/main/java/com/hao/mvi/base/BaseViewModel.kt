@@ -13,15 +13,18 @@ abstract class BaseViewModel<I : IAction, O : IUiState> : ViewModel() {
     /**
      * Ui state launcher
      */
-    protected var uiState = MutableLiveData<O>()
+    private var _uiState = MutableLiveData<O>()
 
     /**
      *
      * Provide to view
      * @return LiveData<O>
      */
-    fun uiState(): LiveData<O> = uiState
+    val uiState: LiveData<O> = _uiState
 
     abstract fun doAction(action: I)
 
+    fun send(o: O) {
+        _uiState.postValue(o)
+    }
 }

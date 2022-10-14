@@ -2,16 +2,16 @@ package com.hao.mvi.base
 
 import androidx.fragment.app.Fragment
 
-fun <I : IAction, O : IUiState> Fragment.render(
-    viewModel: BaseViewModel<I, O>,
+internal fun <I : IAction, O : IUiState> Fragment.render(
+    vm: BaseViewModel<I, O>,
     function: (o: O) -> Unit
 ) {
-    viewModel.uiState().observe(viewLifecycleOwner, function)
+    vm.uiState.observe(viewLifecycleOwner, function)
 }
 
 fun <I : IAction, O : IUiState> doAction(
-    viewModel: BaseViewModel<I, O>,
+    vm: BaseViewModel<I, O>,
     action: I
 ) {
-    viewModel.doAction(action)
+    vm.doAction(action)
 }
