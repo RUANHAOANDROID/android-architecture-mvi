@@ -29,4 +29,9 @@ class MainViewModel : BaseViewModel<MainAction, MainUiState>() {
             }
         }
     }
+
+    override fun onCleared() {
+        super.onCleared()
+        Log.d(TAG, "onCleared: $number")
+    }
 }

@@ -4,10 +4,10 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
+import com.hao.mvi.databinding.FragmentMainBinding
 import com.hao.mvi.base.BaseFragment
 import com.hao.mvi.base.doAction
 import com.hao.mvi.base.render
-import com.hao.mvi.databinding.FragmentMainBinding
 
 /**
  * Simple example

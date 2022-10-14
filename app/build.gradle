@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.hao.architecture_mvi'
+    namespace 'com.hao.mvi'
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.hao.architecture_mvi"
+        applicationId "com.hao.mvi"
         minSdk 24
         targetSdk 32
         versionCode 1
