@@ -1,4 +1,4 @@
-package com.hao.architecture_mvi.base
+package com.hao.mvi.base
 
 import androidx.fragment.app.Fragment
 

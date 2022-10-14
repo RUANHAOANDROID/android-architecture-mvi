@@ -1,7 +1,7 @@
-package com.hao.architecture_mvi
+package com.hao.mvi
 
 import android.util.Log
-import com.hao.architecture_mvi.base.BaseViewModel
+import com.hao.mvi.base.BaseViewModel
 
 /**
  *  viewModel

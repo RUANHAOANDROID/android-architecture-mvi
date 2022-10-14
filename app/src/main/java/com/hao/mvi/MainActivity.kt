@@ -1,7 +1,8 @@
-package com.hao.architecture_mvi
+package com.hao.mvi
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.hao.architecture_mvi.R
 
 /**
  *

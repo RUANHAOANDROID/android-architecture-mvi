@@ -1,7 +1,7 @@
-package com.hao.architecture_mvi
+package com.hao.mvi
 
-import com.hao.architecture_mvi.base.IAction
-import com.hao.architecture_mvi.base.IUiState
+import com.hao.mvi.base.IAction
+import com.hao.mvi.base.IUiState
 
 sealed class MainAction : IAction {
     object Plus : MainAction()

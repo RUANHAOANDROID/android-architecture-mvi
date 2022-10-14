@@ -1,4 +1,4 @@
-package com.hao.architecture_mvi.base
+package com.hao.mvi.base
 
 import android.os.Bundle
 import android.view.LayoutInflater

@@ -1,4 +1,4 @@
-package com.hao.architecture_mvi
+package com.hao.mvi
 
 import org.junit.Test
 

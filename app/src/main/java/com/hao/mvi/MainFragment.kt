@@ -1,13 +1,13 @@
-package com.hao.architecture_mvi
+package com.hao.mvi
 
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
-import com.hao.architecture_mvi.base.BaseFragment
-import com.hao.architecture_mvi.base.doAction
-import com.hao.architecture_mvi.base.render
-import com.hao.architecture_mvi.databinding.FragmentMainBinding
+import com.hao.mvi.base.BaseFragment
+import com.hao.mvi.base.doAction
+import com.hao.mvi.base.render
+import com.hao.mvi.databinding.FragmentMainBinding
 
 /**
  * Simple example
