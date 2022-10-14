@@ -8,10 +8,12 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 /**
- *  viewModel
+ *  ViewModel
+ *  flow see https://developer.android.com/kotlin/flow/stateflow-and-sharedflow?hl=zh-cn#sharedflow
  * @date 2022/10/14
  * @author 锅得铁
  * @since v1.0
+ *
  */
 class MainViewModel : BaseViewModel<MainAction, MainUiState>() {
     private var number: Int = 0
