@@ -3,6 +3,8 @@ package com.hao.mvi.base
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import kotlinx.coroutines.withContext
+import kotlinx.coroutines.Dispatchers
 
 /**
  * @author 锅得铁
@@ -25,6 +27,10 @@ abstract class BaseViewModel<I : IAction, O : IUiState> : ViewModel() {
     abstract fun doAction(action: I)
 
     fun send(o: O) {
-        _uiState.postValue(o)
+        viewModelScope.launch {
+            withContext(Dispatchers.Main){
+                _uiState.value = o
+            }
+        }
     }
 }
